@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="Leonidas Aguaiza" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <script src="src/js/script.js"></script>
+    <style></style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="left">
+                <div class="content">
+                <div class="top">
+                    <div style="margin-top: 60px; font-size: 25px;" id="input" contenteditable="true" class="editable-div" data-placeholder="Ingresa aquí tu texto..."></div>
+                    
+                </div>
+                <div style="justify-content:stretch; margin-left: 40px;" class="middle">
+                    <div class="vertical-end">
+                        <div  class="box">
+                            <p>     Solo letras minusculas y sin acentos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <button class="btnBlue" onclick="encriptar()">Encriptar</button>
+                    <button class="btnWhite" onclick="desencriptar()">Desencriptar</button>
+                </div>
+                </div>
+            </div>    
+            <div class="right">
+                <div class="content">
+                    <div class="top">
+                        <div contenteditable="true" id="output" style="width: 100%; font-size: 18px;" contenteditable="true" class="editable-div" data-placeholder="Aqui se vera su texto encriptado"></div>
+                        
+                    </div>
+                    <div class="middle">
+                        <div class="vertical-center">
+                            <div  style="margin-top: -80px;" class="box">
+                                <div id="mensaje"></div>
+                                <img  class="ocultar" src="src/img/nodata.png" alt="Imgen">
+                                <h2 class="ocultar">Ningun mensaje</h2>
+                                <h2 class="ocultar">encontrado</h2>
+                                <p class="ocultar">Ingresa el texto que desea encriptar o desencriptar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom" >
+                        <button style="display: none;" class="btnWhite mostrar" onclick="copiar()">Copiar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        let miDiv = document.getElementById("input");
+
+        miDiv.addEventListener("keypress", function(e) {
+        let keyCode = e.which || e.keyCode;
+        let char = String.fromCharCode(keyCode);
+        if (!/^[a-z0-9\s]*$/.test(char) || /[A-Z]/.test(char)) {
+            e.preventDefault();
+        }
+        });
+
+    </script>
+</html>
